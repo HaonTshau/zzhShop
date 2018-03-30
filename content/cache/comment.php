@@ -1,0 +1,1 @@
+<?php exit;//a:1:{i:0;a:7:{s:3:"cid";s:1:"1";s:3:"gid";s:1:"2";s:4:"name";s:8:"fangchao";s:4:"date";s:10:"1520423978";s:4:"page";i:1;s:4:"mail";s:0:"";s:7:"content";s:9:"多少钱";}}
