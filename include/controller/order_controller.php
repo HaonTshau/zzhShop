@@ -29,6 +29,7 @@ class Order_Controller {
 */
         $Order_Model = new Order_Model();
         $Order_Model->setCommentCookie($count,$color,$size);
+        $Order_Model->addOrder($blogId,$count,$color,$size);
 		/*
         if($Comment_Model->isLogCanComment($blogId) === false) {
             emMsg('评论失败：该文章已关闭评论');

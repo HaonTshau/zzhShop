@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2018-03-30 15:42:46
+-- 生成日期: 2018-04-01 14:18:04
 -- 服务器版本: 5.1.73
 -- PHP 版本: 5.3.3
 
@@ -92,8 +92,8 @@ CREATE TABLE IF NOT EXISTS `emlog_blog` (
 --
 
 INSERT INTO `emlog_blog` (`gid`, `title`, `date`, `content`, `excerpt`, `alias`, `author`, `sortid`, `type`, `views`, `comnum`, `attnum`, `top`, `sortop`, `hide`, `checked`, `allow_remark`, `password`, `template`, `tags`, `color`, `count`, `size`) VALUES
-(1, '欢迎使用emlog', 1520421902, '恭喜您成功安装了emlog，这是系统自动生成的演示文章。编辑或者删除它，然后开始您的创作吧！', '', '', 1, -1, 'blog', 69, 0, 0, 'n', 'n', 'n', 'y', 'y', '', '', NULL, 'red|yellow|black', 5, '42|43'),
-(2, '方超', 1520423682, '这是一个测试谁的<br />\r\n<a target="_blank" href="http://10.0.0.221/emlog_3/content/uploadfile/201803/44f01520423854.jpg" id="ematt:1"><img src="http://10.0.0.221/emlog_3/content/uploadfile/201803/44f01520423854.jpg" title="点击查看原图" alt="1875205232.jpg" border="0" width="800" height="157" /></a><br />', '', '', 1, 1, 'blog', 141, 1, 1, 'n', 'n', 'n', 'y', 'y', '', '', NULL, 'blue', 88, '175cm');
+(1, '欢迎使用emlog', 1520421902, '恭喜您成功安装了emlog，这是系统自动生成的演示文章。编辑或者删除它，然后开始您的创作吧！', '', '', 1, -1, 'blog', 76, 0, 0, 'n', 'n', 'n', 'y', 'y', '', '', NULL, 'red|yellow|black', 5, '42|43'),
+(2, '方超', 1520423682, '这是一个测试谁的<br />\r\n<a target="_blank" href="http://10.0.0.221/emlog_3/content/uploadfile/201803/44f01520423854.jpg" id="ematt:1"><img src="http://10.0.0.221/emlog_3/content/uploadfile/201803/44f01520423854.jpg" title="点击查看原图" alt="1875205232.jpg" border="0" width="800" height="157" /></a><br />', '', '', 1, 1, 'blog', 147, 1, 1, 'n', 'n', 'n', 'y', 'y', '', '', NULL, 'blue', 88, '175cm');
 
 -- --------------------------------------------------------
 
@@ -252,6 +252,35 @@ INSERT INTO `emlog_options` (`option_id`, `option_name`, `option_value`) VALUES
 (53, 'widgets3', ''),
 (54, 'widgets4', ''),
 (55, 'detect_url', 'n');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `emlog_order`
+--
+
+CREATE TABLE IF NOT EXISTS `emlog_order` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '表id',
+  `logid` int(10) unsigned NOT NULL COMMENT '货物id',
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '时间',
+  `name` varchar(50) DEFAULT NULL COMMENT '姓名',
+  `phone` varchar(20) NOT NULL COMMENT '电话',
+  `count` int(11) DEFAULT NULL COMMENT '数量',
+  `color` varchar(100) DEFAULT NULL COMMENT '颜色',
+  `size` varchar(100) DEFAULT NULL COMMENT '尺码',
+  `address` varchar(200) NOT NULL COMMENT '送货地址',
+  `remark` varchar(200) DEFAULT NULL COMMENT '备注',
+  `flag` enum('0','1','2') NOT NULL DEFAULT '0' COMMENT '订单是否处理',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='订单表' AUTO_INCREMENT=3 ;
+
+--
+-- 转存表中的数据 `emlog_order`
+--
+
+INSERT INTO `emlog_order` (`id`, `logid`, `time`, `name`, `phone`, `count`, `color`, `size`, `address`, `remark`, `flag`) VALUES
+(1, 1, '2018-04-01 00:55:32', NULL, '13136241733', 110, 'black', '43', '蒙古乌兰巴托', NULL, '0'),
+(2, 2, '2018-04-01 01:01:38', NULL, '13136241733', 1103, 'blue', '175cm', '蒙古乌兰巴托', NULL, '0');
 
 -- --------------------------------------------------------
 

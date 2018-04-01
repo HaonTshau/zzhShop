@@ -14,12 +14,21 @@ class Order_Model {
 
 	function setCommentCookie($count,$color,$size){
 		//
-		echo 'cokkie set';
+		//echo 'cokkie set';
 		$cookietime = time() + 31536000;
         setcookie('ccount',$count,$cookietime);
         setcookie('ccolor',$color,$cookietime);
         setcookie('csize',$size,$cookietime);
 	}
+    function addOrder($blogId,$count,$color,$size)
+    {
+		//
+		$sql = "insert into ".DB_PREFIX."order (`logid`,`phone`,`count`,`color`,`size`,`address`) values ($blogId,'13136241733',$count,'$color','$size','蒙古乌兰巴托')";
+		if($this->db->query($sql)){
+			emMsg('订单成功', Url::log($blogId));
+		}
+		
+    }
 /*
     function getComments($spot = 0, $blogId = null, $hide = null, $page = null) {
         $andQuery = '1=1';
