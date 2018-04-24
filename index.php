@@ -12,4 +12,4 @@ $emDispatcher = Dispatcher::getInstance();
 //var_dump($emDispatcher);exit;
 //echo 'i am fangchao'; exit;//
 $emDispatcher->dispatch();
-//View::output();
+View::output();

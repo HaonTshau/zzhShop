@@ -2,6 +2,13 @@
 <script charset="utf-8" src="./editor/kindeditor.js?v=<?php echo Option::EMLOG_VERSION; ?>"></script>
 <script charset="utf-8" src="./editor/lang/zh_CN.js?v=<?php echo Option::EMLOG_VERSION; ?>"></script>
 
+
+<!-- Select 2 -->
+<link href="./select2/select2.css" rel="stylesheet" type="text/css">
+<link href="./select2/select2-bootstrap.css" rel="stylesheet" type="text/css">
+<!-- Select2 -->
+<script src="./select2/select2.js"></script>
+
 <form action="save_log.php?action=add" method="post" enctype="multipart/form-data" id="addlog" name="addlog">
 <!--文章内容-->
 <div class="col-lg-8">
@@ -11,10 +18,10 @@
     <div id="msg"></div>
         <div id="post" class="form-group">
             <div>
-                <input type="text" name="title" id="title" value="<?php echo $title; ?>" class="form-control" placeholder="文章标题" />
+                <input type="text" name="title" id="title" value="<?php echo $title; ?>" class="form-control" placeholder="标题" />
             </div>
             <div id="post_bar">
-                <div class="show_advset">
+<!--                 <div class="show_advset">
                     <span onclick="displayToggle('FrameUpload', 0);autosave(1);">上传插入<i class="fa fa-caret-right fa-fw"></i></span>
                     <?php doAction('adm_writelog_head'); ?>
                     <span id="asmsg"></span>
@@ -22,16 +29,41 @@
                 </div>
                 <div id="FrameUpload" style="display: none;">
                     <iframe width="100%" height="330" frameborder="0" src="<?php echo $att_frame_url;?>"></iframe>
-                </div>
+                </div> -->
             </div>
+            <p>
+                <label>选择颜色：</label>
+                <select name="color[]" id="color" class="form-control" multiple="multiple">
+                    <option value="红色" selected>红色</option>
+                    <option value="橙色">橙色</option>
+                    <option value="黄色">黄色</option>
+                    <option value="绿色">绿色</option>
+                    <option value="青色">青色</option>
+                    <option value="蓝色">蓝色</option>
+                    <option value="紫色">紫色</option>
+                    <option value="黑色">黑色</option>
+                    <option value="白色">白色</option>  
+                </select>
+            </p>
+            <p>
+                <label>选择尺码：</label>
+                <select name="size[]" id="size" class="form-control" multiple="multiple">
+                    <option value="XL" selected>XL</option>
+                    <option value="XXL">XXL</option> 
+                </select>
+            </p>
+            <p>
+                <label>库存数量：</label>
+                <input type="text" name="count" class="form-control">
+            </p>
             <div>
                 <textarea id="content" name="content" style="width:100%; height:460px;"><?php echo $content; ?></textarea>
             </div>
-            <div class="show_advset" onclick="displayToggle('advset', 1);">高级选项<i class="fa fa-caret-right fa-fw"></i></div>
+<!--             <div class="show_advset" onclick="displayToggle('advset', 1);">高级选项<i class="fa fa-caret-right fa-fw"></i></div>
             <div id="advset">
                 <div>文章摘要：</div>
                 <div><textarea id="excerpt" name="excerpt" style="width:100%; height:260px;"><?php echo $excerpt; ?></textarea></div>
-            </div>
+            </div> -->
         </div>
     <div class=line></div>
 </div>
@@ -139,4 +171,8 @@
     });
     setTimeout("autosave(0)", 60000);
     $("#menu_wt").addClass('active');
+
+    var data = [{id:1, text:'红色'}];
+    $("#color").select2();
+    $("#size").select2();
 </script>

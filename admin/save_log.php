@@ -25,6 +25,20 @@ $allow_remark = isset($_POST['allow_remark']) ? addslashes(trim($_POST['allow_re
 $ishide = isset($_POST['ishide']) && !empty($_POST['ishide']) && !isset($_POST['pubdf']) ? addslashes($_POST['ishide']) : 'n';
 $password = isset($_POST['password']) ? addslashes(trim($_POST['password'])) : '';
 
+$color = '';
+$size = '';
+$count = isset($_POST['count']) ? intval(trim($_POST['count'])) : 0;
+if (isset($_POST['color'])){
+   foreach ($_POST['color'] as $key => $value) {
+        $color = $color . $value . ';';
+    }
+}
+if (isset($_POST['size'])){
+    foreach ($_POST['size'] as $key => $value) {
+        $size = $size . $value . ';';
+    }
+}
+
 $postTime = strtotime($postDate);
 
 LoginAuth::checkToken();
@@ -48,7 +62,10 @@ $logData = array(
     'allow_remark' => $allow_remark,
     'hide' => $ishide,
     'checked' => $user_cache[UID]['ischeck'] == 'y' ? 'n' : 'y',
-    'password' => $password
+    'password' => $password,
+    'color' => $color,
+    'size' => $size,
+    'count' => $count,
 );
 
 if ($blogid > 0) {//自动保存草稿后,添加变为更新
