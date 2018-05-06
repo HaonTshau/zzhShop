@@ -6,14 +6,17 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
 ?>
 <?php
 //----by fangchao  订单模块代码
-function order_module($ccolor,$csize,$ccount,$logid,$color,$size){
+function order_module($ccolor,$csize,$ccount,$cname,$cphone,$caddress,$logid,$color,$size){
 	$colorlists = explode("|",$color);
 	$sizelists = explode("|",$size);
 	?>
 	<hr />
 	<form method="post" name="orderform" action="<?php echo BLOG_URL; ?>index.php?action=addorder" id="orderform">
 	<input type="hidden" name="gid" value="<?php echo $logid; ?>" />
-	<input type="text" id="order_count" name="order_count" value="<?php echo $ccount; ?>" />
+	<input type="text" id="order_count" name="order_count" value="<?php echo $ccount; ?>" placeholder="数量" /><br />
+	<input type="text" id="order_phone" name="order_phone" value="<?php echo $cphone; ?>" placeholder="电话号码" /><br />
+	<input type="text" id="order_address" name="order_address" value="<?php echo $caddress; ?>" placeholder="家庭地址" /><br />
+	<input type="text" id="order_name" name="order_name" value="<?php echo $cname; ?>" placeholder="收货人姓名" /><br />
 	<select name="colorlist">
 	<?php
 	foreach($colorlists as $value):?>	

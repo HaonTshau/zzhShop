@@ -10,6 +10,9 @@ class Order_Controller {
         $count = isset($_POST['order_count']) ? addslashes(trim($_POST['order_count'])) : '';
         $color = isset($_POST['colorlist']) ? addslashes(trim($_POST['colorlist'])) : '';
         $size = isset($_POST['sizelist']) ? addslashes(trim($_POST['sizelist'])) : '';
+		$address = isset($_POST['order_address']) ? addslashes(trim($_POST['order_address'])) : '';
+		$name = isset($_POST['order_name']) ? addslashes(trim($_POST['order_name'])) : '';
+		$phone = isset($_POST['order_phone']) ? addslashes(trim($_POST['order_phone'])) : '';
 		$blogId = isset($_POST['gid']) ? intval($_POST['gid']) : -1;
 		//echo $count.' and '.$color.' and '.$size;exit;
 /*
@@ -28,8 +31,8 @@ class Order_Controller {
         doAction('comment_post');
 */
         $Order_Model = new Order_Model();
-        $Order_Model->setCommentCookie($count,$color,$size);
-        $Order_Model->addOrder($blogId,$count,$color,$size);
+        $Order_Model->setCommentCookie($count,$color,$size,$address,$name,$phone);
+        $Order_Model->addOrder($blogId,$count,$color,$size,$address,$name,$phone);
 		/*
         if($Comment_Model->isLogCanComment($blogId) === false) {
             emMsg('评论失败：该文章已关闭评论');

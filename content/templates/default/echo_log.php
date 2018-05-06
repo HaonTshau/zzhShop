@@ -14,7 +14,7 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
 	<?php blog_comments($comments); ?>
 	<?php blog_comments_post($logid,$ckname,$ckmail,$ckurl,$verifyCode,$allow_remark); ?>
 	<div style="clear:both;"></div>
-	<?php order_module($ccolor,$csize,$ccount,$logid,$color,$size); ?>
+	<?php order_module($ccolor,$csize,$ccount,$cname,$cphone,$caddress,$logid,$color,$size); ?>
 </div>
 <?php
  //include View::getView('side');   //右边侧边栏  隐藏掉

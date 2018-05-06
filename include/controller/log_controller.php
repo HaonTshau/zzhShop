@@ -120,6 +120,9 @@ class Log_Controller {
         $ccolor = isset($_COOKIE['ccolor']) ? htmlspecialchars($_COOKIE['ccolor']) : '';
         $csize = isset($_COOKIE['csize']) ? htmlspecialchars($_COOKIE['csize']) : '';
         $ccount = isset($_COOKIE['ccount']) ? htmlspecialchars($_COOKIE['ccount']) : '';
+        $cname = isset($_COOKIE['cname']) ? htmlspecialchars($_COOKIE['cname']) : '';
+        $caddress = isset($_COOKIE['caddress']) ? htmlspecialchars($_COOKIE['caddress']) : '';
+        $cphone = isset($_COOKIE['cphone']) ? htmlspecialchars($_COOKIE['cphone']) : '';
         $comments = $Comment_Model->getComments(0, $logid, 'n', $comment_page);
 
         include View::getView('header');

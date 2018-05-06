@@ -12,18 +12,21 @@ class Order_Model {
         $this->db = Database::getInstance();
     }
 
-	function setCommentCookie($count,$color,$size){
+	function setCommentCookie($count,$color,$size,$address,$name,$phone){
 		//
 		//echo 'cokkie set';
 		$cookietime = time() + 31536000;
         setcookie('ccount',$count,$cookietime);
         setcookie('ccolor',$color,$cookietime);
         setcookie('csize',$size,$cookietime);
+        setcookie('cname',$name,$cookietime);
+        setcookie('caddress',$address,$cookietime);
+        setcookie('cphone',$phone,$cookietime);
 	}
-    function addOrder($blogId,$count,$color,$size)
+    function addOrder($blogId,$count,$color,$size,$address,$name,$phone)
     {
 		//
-		$sql = "insert into ".DB_PREFIX."order (`logid`,`phone`,`count`,`color`,`size`,`address`) values ($blogId,'13136241733',$count,'$color','$size','蒙古乌兰巴托')";
+		$sql = "insert into ".DB_PREFIX."order (`logid`,`phone`,`count`,`color`,`size`,`address`,`name`) values ($blogId,'$phone',$count,'$color','$size','$address','$name')";
 		if($this->db->query($sql)){
 			emMsg('订单成功', Url::log($blogId));
 		}
