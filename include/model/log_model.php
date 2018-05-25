@@ -1,6 +1,6 @@
 <?php
 /**
- * 文章、页面管理
+ * 产品、页面管理
  *
  * @copyright (c) Emlog All Rights Reserved
  */
@@ -14,7 +14,7 @@ class Log_Model {
     }
 
     /**
-     * 添加文章、页面
+     * 添加产品、页面
      *
      * @param array $logData
      * @return int
@@ -34,7 +34,7 @@ class Log_Model {
     }
 
     /**
-     * 更新文章内容
+     * 更新产品内容
      *
      * @param array $logData
      * @param int $blogId
@@ -50,7 +50,7 @@ class Log_Model {
     }
 
     /**
-     * 获取指定条件的文章条数
+     * 获取指定条件的产品条数
      *
      * @param int $spot 0:前台 1:后台
      * @param string $hide
@@ -72,7 +72,7 @@ class Log_Model {
     }
 
     /**
-     * 后台获取单篇文章
+     * 后台获取单篇产品
      */
     function getOneLogForAdmin($blogId) {
         $author = ROLE == ROLE_ADMIN ? '' : 'AND author=' . UID;
@@ -96,7 +96,7 @@ class Log_Model {
     }
 
     /**
-     * 前台获取单篇文章
+     * 前台获取单篇产品
 	 */
 	 //--by fangchao 
 	function getOneLogForHome($blogId) {
@@ -161,7 +161,7 @@ class Log_Model {
     }
 */
     /**
-     * 后台获取文章列表
+     * 后台获取产品列表
      *
      * @param string $condition
      * @param string $hide_state
@@ -191,7 +191,7 @@ class Log_Model {
     }
 
     /**
-     * 前台获取文章列表
+     * 前台获取产品列表
      *
      * @param string $condition
      * @param int $page
@@ -210,7 +210,7 @@ class Log_Model {
             $row['logid'] = $row['gid'];
             $cookiePassword = isset($_COOKIE['em_logpwd_' . $row['gid']]) ? addslashes(trim($_COOKIE['em_logpwd_' . $row['gid']])) : '';
             if (!empty($row['password']) && $cookiePassword != $row['password']) {
-                $row['excerpt'] = '<p>[该文章已设置加密，请点击标题输入密码访问]</p>';
+                $row['excerpt'] = '<p>[该产品已设置加密，请点击标题输入密码访问]</p>';
             } else {
                 if (!empty($row['excerpt'])) {
 					//echo Url::log($row['logid']);exit;
@@ -248,7 +248,7 @@ class Log_Model {
     }
 
     /**
-     * 删除文章
+     * 删除产品
      *
      * @param int $blogId
      */
@@ -278,7 +278,7 @@ class Log_Model {
     }
 
     /**
-     * 隐藏/显示文章
+     * 隐藏/显示产品
      *
      * @param int $blogId
      * @param string $state
@@ -292,7 +292,7 @@ class Log_Model {
     }
 
     /**
-     * 审核/驳回作者文章
+     * 审核/驳回作者产品
      *
      * @param int $blogId
      * @param string $state
@@ -325,7 +325,7 @@ class Log_Model {
     }
 
     /**
-     * 获取相邻文章
+     * 获取相邻产品
      *
      * @param int $date unix时间戳
      * @return array
@@ -344,7 +344,7 @@ class Log_Model {
     }
 
     /**
-     * 随机获取指定数量文章
+     * 随机获取指定数量产品
      */
     function getRandLog($num) {
         global $CACHE;
@@ -363,7 +363,7 @@ class Log_Model {
     }
 
     /**
-     * 获取热门文章
+     * 获取热门产品
      */
     function getHotLog($num) {
         $sql = "SELECT gid,title FROM " . DB_PREFIX . "blog WHERE hide='n' and checked='y' and type='blog' ORDER BY views DESC, comnum DESC LIMIT 0, $num";
@@ -378,7 +378,7 @@ class Log_Model {
     }
 
     /**
-     * 处理文章别名，防止别名重复
+     * 处理产品别名，防止别名重复
      *
      * @param string $alias
      * @param array $logalias_cache
@@ -400,7 +400,7 @@ class Log_Model {
     }
 
     /**
-     * 加密文章访问验证
+     * 加密产品访问验证
      *
      * @param string $pwd
      * @param string $pwd2
@@ -424,7 +424,7 @@ body{background-color:#F7F7F7;font-family: Arial;font-size: 12px;line-height:150
 <body>
 <div class="main">
 <form action="" method="post">
-请输入该文章的访问密码<br>
+请输入该产品的访问密码<br>
 <input type="password" name="logpwd" /><input type="submit" value="进入.." />
 <br /><br /><a href="$url">&laquo;返回首页</a>
 </form>

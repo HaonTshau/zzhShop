@@ -21,7 +21,7 @@ foreach($tags as $key=>$value): ?>
 <a href="javascript:deltags();" class="care">删除</a>
 </li>
 <?php else:?>
-<li style="margin:20px 30px">还没有标签，写文章的时候可以给文章打标签</li>
+<li style="margin:20px 30px">还没有标签，写产品的时候可以给产品打标签</li>
 <?php endif;?>
 </div>
 </form>

@@ -78,25 +78,40 @@ if ($action == '') {
     include View::getView('footer');View::output();
 }
 
-//操作文章
-// if ($action == 'operate_log') {
-//     $operate = isset($_REQUEST['operate']) ? $_REQUEST['operate'] : '';
+//操作产品
+if ($action == 'operate_log') {
+    $operate = isset($_REQUEST['operate']) ? $_REQUEST['operate'] : '';
 //     $pid = isset($_POST['pid']) ? $_POST['pid'] : '';
-//     $logs = isset($_POST['blog']) ? array_map('intval', $_POST['blog']) : array();
+    $logs = isset($_POST['order']) ? array_map('intval', $_POST['order']) : array();
 //     $sort = isset($_POST['sort']) ? intval($_POST['sort']) : '';
 //     $author = isset($_POST['author']) ? intval($_POST['author']) : '';
 //     $gid = isset($_GET['gid']) ? intval($_GET['gid']) : '';
 
-//     LoginAuth::checkToken();
+    LoginAuth::checkToken();
 
-//     if ($operate == '') {
-//         emDirect("./order_log.php?pid=$pid&error_b=1");
-//     }
-//     if (empty($logs) && empty($gid)) {
-//         emDirect("./order_log.php?pid=$pid&error_a=1");
-//     }
 
-//     switch ($operate) {
+
+    if ($operate == '') {
+        emDirect("./order_log.php?pid=$pid&error_b=1");
+    }
+
+    if (empty($logs)) {
+        emDirect("./order_log.php?pid=$pid&error_a=1");
+    }
+
+    switch ($operate) {
+        case 'unhandle':
+            foreach ($logs as $value) {
+                $Order_Model->unhandleOrder($value);
+                emDirect("./order_log.php");
+            }
+            break;
+        case 'handled':
+            foreach ($logs as $value) {
+                $Order_Model->handleOrder($value);
+                emDirect("./order_log.php");
+            }
+            break;
 //         case 'del':
 //             foreach ($logs as $val)
 //             {
@@ -191,5 +206,5 @@ if ($action == '') {
 //             $CACHE->updateCache();
 //             emDirect("./admin_log.php?active_unck=1");
 //             break;
-//     }
-// }
+    }
+}

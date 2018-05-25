@@ -255,7 +255,7 @@ class Cache {
         }
         $query = $this->db->query("SELECT tagname,gid FROM " . DB_PREFIX . "tag");
         while ($show_tag = $this->db->fetch_array($query)) {
-            // 排除草稿在tag文章数里的统计
+            // 排除草稿在tag产品数里的统计
             foreach ($hideGids as $val) {
                 $show_tag['gid'] = str_replace(',' . $val . ',', ',', $show_tag['gid']);
             }
@@ -361,7 +361,7 @@ class Cache {
         $this->cacheWrite($cacheData, 'navi');
     }
     /**
-     * 最新文章
+     * 最新产品
      */
     private function mc_newlog() {
         $row = $this->db->fetch_array($this->db->query("SELECT option_value FROM " . DB_PREFIX . "options where option_name='index_newlognum'"));
@@ -378,7 +378,7 @@ class Cache {
         $this->cacheWrite($cacheData, 'newlog');
     }
     /**
-     * 文章归档缓存
+     * 产品归档缓存
      */
     private function mc_record() {
         $query = $this->db->query('select date from ' . DB_PREFIX . "blog WHERE hide='n' and checked='y' and type='blog' ORDER BY date DESC");
@@ -414,7 +414,7 @@ class Cache {
         $this->cacheWrite($cacheData, 'record');
     }
     /**
-     * 文章标签缓存
+     * 产品标签缓存
      */
     private function mc_logtags() {
         $tag_model = new Tag_Model();
@@ -444,7 +444,7 @@ class Cache {
         $this->cacheWrite($cacheData, 'logtags');
     }
     /**
-     * 文章分类缓存
+     * 产品分类缓存
      */
     private function mc_logsort() {
         $sql = "SELECT gid,sortid FROM " . DB_PREFIX . "blog where type='blog'";
@@ -465,7 +465,7 @@ class Cache {
         $this->cacheWrite($cacheData, 'logsort');
     }
     /**
-     * 文章别名缓存
+     * 产品别名缓存
      */
     private function mc_logalias() {
         $sql = "SELECT gid,alias FROM " . DB_PREFIX . "blog where alias!=''";

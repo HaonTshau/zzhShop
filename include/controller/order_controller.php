@@ -35,7 +35,7 @@ class Order_Controller {
         $Order_Model->addOrder($blogId,$count,$color,$size,$address,$name,$phone);
 		/*
         if($Comment_Model->isLogCanComment($blogId) === false) {
-            emMsg('评论失败：该文章已关闭评论');
+            emMsg('评论失败：该产品已关闭评论');
         } elseif ($Comment_Model->isCommentExist($blogId, $name, $content) === true) {
             emMsg('评论失败：已存在相同内容评论');
         } elseif (ROLE == ROLE_VISITOR && $Comment_Model->isCommentTooFast() === true) {

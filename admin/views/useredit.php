@@ -21,8 +21,8 @@
 	</li>
     <li id="ischeck">
 	<select name="ischeck" class="form-control">
-        <option value="n" <?php echo $ex3; ?>>文章不需要审核</option>
-		<option value="y" <?php echo $ex4; ?>>文章需要审核</option>
+        <option value="n" <?php echo $ex3; ?>>产品不需要审核</option>
+		<option value="y" <?php echo $ex4; ?>>产品需要审核</option>
 	</select>
 	</li>
 	<li>个人描述<br />

@@ -1,6 +1,6 @@
 <?php
 /**
- * 保存文章（增加、修改）
+ * 保存产品（增加、修改）
  * @copyright (c) Emlog All Rights Reserved
  */
 
@@ -11,7 +11,7 @@ $Tag_Model = new Tag_Model();
 
 $title = isset($_POST['title']) ? addslashes(trim($_POST['title'])) : '';
 $postDate = isset($_POST['postdate']) ? trim($_POST['postdate']) : '';
-$date = isset($_POST['date']) ? addslashes($_POST['date']) : '';//修改前的文章时间
+$date = isset($_POST['date']) ? addslashes($_POST['date']) : '';//修改前的产品时间
 $sort = isset($_POST['sort']) ? intval($_POST['sort']) : -1;
 $tagstring = isset($_POST['tag']) ? addslashes(trim($_POST['tag'])) : '';
 $content = isset($_POST['content']) ? addslashes(trim($_POST['content'])) : '';
@@ -95,9 +95,9 @@ switch ($action) {
             emDirect("./admin_log.php?pid=draft&active_savedraft=1");
         } else {
             if ($action == 'add' || isset($_POST['pubdf'])) {
-                emDirect("./admin_log.php?active_post=1");//文章发布成功
+                emDirect("./admin_log.php?active_post=1");//产品发布成功
             } else {
-                emDirect("./admin_log.php?active_savelog=1");//文章保存成功
+                emDirect("./admin_log.php?active_savelog=1");//产品保存成功
             }
         }
         break;

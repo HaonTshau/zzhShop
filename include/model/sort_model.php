@@ -1,6 +1,6 @@
 <?php
 /**
- * 文章分类
+ * 产品分类
  * @copyright (c) Emlog All Rights Reserved
  */
 

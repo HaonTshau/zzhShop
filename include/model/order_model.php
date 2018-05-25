@@ -66,9 +66,26 @@ class Order_Model {
             $row['remark'] = htmlspecialchars($row['remark']);
             $row['flag'] = htmlspecialchars($row['flag']);
 
+            $sql = "SELECT * FROM ".DB_PREFIX."blog WHERE gid=".$row['logid'];
+            $res = $this->db->once_fetch_array($sql);
+            $row['detail'] = $res['title'];
+
             array_push($orders, $row);
         }
+
         return $orders;
+    }
+
+    function handleOrder($id){
+        $sql = "UPDATE ".DB_PREFIX."order SET flag = '1' WHERE id = $id";
+        $ret = $this->db->query($sql);
+        return $ret;
+    }
+
+    function unhandleOrder($id){
+        $sql = "UPDATE ".DB_PREFIX."order SET flag = '0' WHERE id = $id";
+        $ret = $this->db->query($sql);
+        return $ret;
     }
 /*
     function getComments($spot = 0, $blogId = null, $hide = null, $page = null) {

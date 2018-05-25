@@ -10,7 +10,7 @@
 <script src="./select2/select2.js"></script>
 
 <form action="save_log.php?action=add" method="post" enctype="multipart/form-data" id="addlog" name="addlog">
-<!--文章内容-->
+<!--产品内容-->
 <div class="col-lg-8">
     <div class="containertitle">
         <b><?php echo $containertitle; ?></b><span id="msg_2"></span>
@@ -61,14 +61,14 @@
             </div>
 <!--             <div class="show_advset" onclick="displayToggle('advset', 1);">高级选项<i class="fa fa-caret-right fa-fw"></i></div>
             <div id="advset">
-                <div>文章摘要：</div>
+                <div>产品摘要：</div>
                 <div><textarea id="excerpt" name="excerpt" style="width:100%; height:260px;"><?php echo $excerpt; ?></textarea></div>
             </div> -->
         </div>
     <div class=line></div>
 </div>
 
-<!--文章侧边栏-->
+<!--产品侧边栏-->
 <div class="col-lg-4 container-side">
     <div class="panel panel-default">
         <div class="panel-heading">设置项</div>
@@ -100,7 +100,7 @@
             
             <div class="form-group">
             <label>标签：</label>
-            <input name="tag" id="tag" class="form-control" value="<?php echo $tagStr; ?>" placeholder="文章标签，使用逗号分隔" />
+            <input name="tag" id="tag" class="form-control" value="<?php echo $tagStr; ?>" placeholder="产品标签，使用逗号分隔" />
             <span style="color:#2A9DDB;cursor:pointer;margin-right: 40px;"><a href="javascript:displayToggle('tagbox', 0);">已有标签+</a></span>
             <div id="tagbox" style="display: none;">
                 <?php
@@ -148,7 +148,7 @@
         <input type="hidden" name="author" id="author" value=<?php echo $author; ?> />
 
         <?php if ($logid < 0):?>
-        <input type="submit" value="发布文章" onclick="return checkform();" class="btn btn-primary" />
+        <input type="submit" value="发布产品" onclick="return checkform();" class="btn btn-primary" />
         <input type="button" name="savedf" id="savedf" value="保存草稿" onclick="autosave(2);" class="btn btn-success" />
         <?php else:?>
         <input type="submit" value="保存并返回" onclick="return checkform();" class="btn btn-primary" />

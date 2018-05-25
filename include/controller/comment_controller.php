@@ -33,7 +33,7 @@ class Comment_Controller {
         $Comment_Model = new Comment_Model();
         $Comment_Model->setCommentCookie($name,$mail,$url);
         if($Comment_Model->isLogCanComment($blogId) === false) {
-            emMsg('评论失败：该文章已关闭评论');
+            emMsg('评论失败：该产品已关闭评论');
         } elseif ($Comment_Model->isCommentExist($blogId, $name, $content) === true) {
             emMsg('评论失败：已存在相同内容评论');
         } elseif (ROLE == ROLE_VISITOR && $Comment_Model->isCommentTooFast() === true) {

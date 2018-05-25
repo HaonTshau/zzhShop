@@ -20,7 +20,7 @@ class Calendar {
 	static function generate() {
 		$DB = Database::getInstance();
 
-		//建立文章时间写入数组
+		//建立产品时间写入数组
 		$query = $DB->query("SELECT date FROM ".DB_PREFIX."blog WHERE hide='n' and checked='y' and type='blog'");
 		while ($date = $DB->fetch_array($query)) {
 			$logdate[] = date("Ymd", $date['date']);
@@ -94,9 +94,9 @@ class Calendar {
 					$calendar.= '<td>&nbsp;</td>';
 				} elseif ( $j <= 7 ) {
 					$r = $j - $week + 1;
-					//如果该日有文章就显示url样式
+					//如果该日有产品就显示url样式
 					$n_time = $n_year . $n_month . '0' . $r;
-					//有文章且为当天
+					//有产品且为当天
 					if (@in_array($n_time,$logdate) && $n_time == $time) {
 						$calendar .= '<td class="day"><a href="'.Url::record($n_time).'">'. $r .'</a></td>';
 					} elseif (@in_array($n_time,$logdate)) {
@@ -112,7 +112,7 @@ class Calendar {
 						$isend = true;
 						$calendar .= '<td>&nbsp;</td>';
 					} else {
-						//如果该日有文章就显示url样式
+						//如果该日有产品就显示url样式
 						$t < 10 ? $n_time = $n_year . $n_month . '0' . $t : $n_time = $n_year . $n_month . $t;
 						if (@in_array($n_time,$logdate) && $n_time == $time) {
 							$calendar .= '<td class="day"><a href="'.Url::record($n_time).'">'. $t .'</a></td>';

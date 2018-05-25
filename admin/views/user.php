@@ -19,7 +19,7 @@
         <th width="220"><b>用户</b></th>
         <th width="250"><b>描述</b></th>
         <th width="240"><b>电子邮件</b></th>
-		<th width="30" class="tdcenter"><b>文章</b></th>
+		<th width="30" class="tdcenter"><b>产品</b></th>
       </tr>
     </thead>
     <tbody>
@@ -33,7 +33,7 @@
 		<td>
 		<?php echo empty($val['name']) ? $val['login'] : $val['name']; ?><br />
 		<?php echo $val['role'] == ROLE_ADMIN ? $val['uid'] == 1 ? '创始人':'管理员' : '作者'; ?>
-        <?php if ($val['role'] == ROLE_WRITER && $val['ischeck'] == 'y') echo '(文章需审核)';?>
+        <?php if ($val['role'] == ROLE_WRITER && $val['ischeck'] == 'y') echo '(产品需审核)';?>
 		<span style="display:none; margin-left:8px;">
 		<?php 
         if (UID != $val['uid']): ?>
@@ -69,8 +69,8 @@
 	<li><input name="password2" type="password" id="password2" value="" style="width:180px;" class="form-control" /> 重复密码</li>
 	<li id="ischeck">
 	<select name="ischeck" class="form-control">
-        <option value="n">文章不需要审核</option>
-		<option value="y">文章需要审核</option>
+        <option value="n">产品不需要审核</option>
+		<option value="y">产品需要审核</option>
 	</select>
 	</li>
     <input name="token" id="token" value="<?php echo LoginAuth::genToken(); ?>" type="hidden" />

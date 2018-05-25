@@ -14,7 +14,7 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
         <?php if(isset($_GET['active_del'])):?><span class="alert alert-success">删除成功</span><?php endif;?>
         <?php if(isset($_GET['active_up'])):?><span class="alert alert-success">置顶成功</span><?php endif;?>
         <?php if(isset($_GET['active_down'])):?><span class="alert alert-success">取消置顶成功</span><?php endif;?>
-        <?php if(isset($_GET['error_a'])):?><span class="alert alert-danger">请选择要处理的文章</span><?php endif;?>
+        <?php if(isset($_GET['error_a'])):?><span class="alert alert-danger">请选择要处理的产品</span><?php endif;?>
         <?php if(isset($_GET['error_b'])):?><span class="alert alert-danger">请选择要执行的操作</span><?php endif;?>
         <?php if(isset($_GET['active_post'])):?><span class="alert alert-success">发布成功</span><?php endif;?>
         <?php if(isset($_GET['active_move'])):?><span class="alert alert-success">移动成功</span><?php endif;?>
@@ -22,8 +22,8 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
         <?php if(isset($_GET['active_hide'])):?><span class="alert alert-success">转入草稿箱成功</span><?php endif;?>
         <?php if(isset($_GET['active_savedraft'])):?><span class="alert alert-success">草稿保存成功</span><?php endif;?>
         <?php if(isset($_GET['active_savelog'])):?><span class="alert alert-success">保存成功</span><?php endif;?>
-        <?php if(isset($_GET['active_ck'])):?><span class="alert alert-success">文章审核成功</span><?php endif;?>
-        <?php if(isset($_GET['active_unck'])):?><span class="alert alert-success">文章驳回成功</span><?php endif;?> 
+        <?php if(isset($_GET['active_ck'])):?><span class="alert alert-success">产品审核成功</span><?php endif;?>
+        <?php if(isset($_GET['active_unck'])):?><span class="alert alert-success">产品驳回成功</span><?php endif;?> 
 -->
     </ul>
 </div>
@@ -77,7 +77,7 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
     </div>
     <div style="float:right;">
         <form action="admin_log.php" method="get">
-            <input type="text" name="keyword" class="form-control" placeholder="搜索文章">
+            <input type="text" name="keyword" class="form-control" placeholder="搜索产品">
         <?php if($pid):?>
         <input type="hidden" id="pid" name="pid" value="draft">
         <?php endif;?>
@@ -101,13 +101,13 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
 </div>
 </div>
 -->
-<form action="admin_log.php?action=operate_log" method="post" name="form_log" id="form_log">
-  <input type="hidden" name="pid" value="<?php echo $pid; ?>">
+<form action="order_log.php?action=operate_log" method="post" name="form_log" id="form_log">
+  <!-- <input type="hidden" name="pid" value="<?php echo $pid; ?>"> -->
   <table class="table table-striped table-bordered table-hover dataTable no-footer">
   <thead>
       <tr>
-        <th width="130"><b>订单 ID</b></th>
-        <th width="130"><b><a href="#">商品</a></b></th>
+        <th width="260" colspan="2"><b>订单 ID</b></th>
+        <th width="130"><b><a href="#">产品</a></b></th>
         <th width="130"><b><a href="#">数量</a></b></th>
         <th width="130"><b><a href="#">颜色</a></b></th>
         <th width="130"><b><a href="#">尺寸</a></b></th>
@@ -165,8 +165,11 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
       <td class="tdcenter"><a href="comment.php?gid=<?php echo $value['gid']; ?>"><?php echo $value['comnum']; ?></a></td>
       <td class="tdcenter"><?php echo $value['views']; ?></a></td>
 -->
+        <td width="21">
+            <input type="checkbox" name="order[]" value="<?php echo $value['id']; ?>" class="ids" />
+        </td>
         <td class="tdcenter"><?php echo $value['id']?></td>
-        <td class="tdcenter"><?php echo $value['logid']?></td>
+        <td class="tdcenter"><?php echo $value['detail']?></td>
         <td class="tdcenter"><?php echo $value['count']?></td>
         <td class="tdcenter"><?php echo $value['color']?></td>
         <td class="tdcenter"><?php echo $value['size']?></td>
@@ -175,32 +178,48 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
         <td class="tdcenter"><?php echo $value['phone']?></td>
         <td class="tdcenter"><?php echo $value['time']?></td>        
         <td class="tdcenter"><?php echo $value['remark']?></td>
-        <td class="tdcenter"><?php echo $value['flag']?></td>
+        <td class="tdcenter">
+            <?php
+                switch ($value['flag']) {
+                    case 0:
+                        echo '未处理';
+                        break;
+                    case 1:
+                        echo '已处理';
+                    default:
+                        # code...
+                        break;
+                }
+            ?>       
+        </td>
       </tr>
     <?php endforeach;else:?>
       <tr><td class="tdcenter" colspan="12">还没有订单</td></tr>
     <?php endif;?>
     </tbody>
     </table>
-<!--
+
     <input name="token" id="token" value="<?php echo LoginAuth::genToken(); ?>" type="hidden" />
     <input name="operate" id="operate" value="" type="hidden" />
     <div class="list_footer form-inline">
-    <a href="javascript:void(0);" id="select_all">全选</a> 选中项：
+        <a href="javascript:void(0);" id="select_all">全选</a> 选中项：
+<!--
     <a href="javascript:logact('del');" class="care">删除</a> | 
     <?php if($pid == 'draft'): ?>
     <a href="javascript:logact('pub');">发布</a>
     <?php else: ?>
     <a href="javascript:logact('hide');">放入草稿箱</a> | 
+-->
 
     <?php if (ROLE == ROLE_ADMIN):?>
-    <select name="top" id="top" onChange="changeTop(this);" style="width:120px;" class="form-control">
-        <option value="" selected="selected">置顶操作...</option>
-        <option value="top">首页置顶</option>
-        <option value="sortop">分类置顶</option>
-        <option value="notop">取消置顶</option>
-    </select>
+        <select name="top" id="top" onChange="changeTop(this);" style="width:160px;" class="form-control">
+            <option value="" selected="selected">状态全部变更为...</option>
+            <option value="handled">已处理</option>
+            <option value="unhandle">未处理</option>
+        </select>
     <?php endif;?>
+
+<!--
 
     <select name="sort" id="sort" onChange="changeSort(this);" style="width:120px;" class="form-control">
     <option value="" selected="selected">移动到分类...</option>
@@ -241,52 +260,60 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
 -->
 </form>
 <!--
-<div class="page"><?php echo $pageurl; ?> (有<?php echo $logNum; ?>篇<?php echo $pid == 'draft' ? '草稿' : '文章'; ?>)</div>
+<div class="page"><?php echo $pageurl; ?> (有<?php echo $logNum; ?>篇<?php echo $pid == 'draft' ? '草稿' : '产品'; ?>)</div>
 -->
 </div>
 <script>
-$(document).ready(function(){
-    $("#f_t_tag").click(function(){$("#f_tag").toggle();$("#f_sort").hide();$("#f_user").hide();});
-    selectAllToggle();
-});
-setTimeout(hideActived,2600);
-function logact(act){
-    if (getChecked('ids') == false) {
-        alert('请选择要操作的文章');
-        return;}
-    if(act == 'del' && !confirm('你确定要删除所选文章吗？')){return;}
-    $("#operate").val(act);
-    $("#form_log").submit();
-}
-function changeSort(obj) {
-    if (getChecked('ids') == false) {
-        alert('请选择要操作的文章');
-        return;}
-    if($('#sort').val() == '')return;
-    $("#operate").val('move');
-    $("#form_log").submit();
-}
-function changeAuthor(obj) {
-    if (getChecked('ids') == false) {
-        alert('请选择要操作的文章');
-        return;}
-    if($('#author').val() == '')return;
-    $("#operate").val('change_author');
-    $("#form_log").submit();
-}
-function changeTop(obj) {
-    if (getChecked('ids') == false) {
-        alert('请选择要操作的文章');
-        return;}
-    if($('#top').val() == '')return;
-    $("#operate").val(obj.value);
-    $("#form_log").submit();
-}
-function selectSort(obj) {
-    window.open("./admin_log.php?sid=" + obj.value + "<?php echo $isdraft?>", "_self");
-}
-function selectUser(obj) {
-    window.open("./admin_log.php?uid=" + obj.value + "<?php echo $isdraft?>", "_self");
-}
-$("#menu_order_log").addClass('active');
+    $(document).ready(function(){
+        // $("#f_t_tag").click(function(){$("#f_tag").toggle();$("#f_sort").hide();$("#f_user").hide();});
+        selectAllToggle();
+    });
+
+    setTimeout(hideActived,2600);
+
+    // function logact(act){
+    //     if (getChecked('ids') == false) {
+    //         alert('请选择要操作的产品');
+    //         return;}
+    //     if(act == 'del' && !confirm('你确定要删除所选产品吗？')){return;}
+    //     $("#operate").val(act);
+    //     $("#form_log").submit();
+    // }
+
+    // function changeSort(obj) {
+    //     if (getChecked('ids') == false) {
+    //         alert('请选择要操作的产品');
+    //         return;}
+    //     if($('#sort').val() == '')return;
+    //     $("#operate").val('move');
+    //     $("#form_log").submit();
+    // }
+
+    // function changeAuthor(obj) {
+    //     if (getChecked('ids') == false) {
+    //         alert('请选择要操作的产品');
+    //         return;}
+    //     if($('#author').val() == '')return;
+    //     $("#operate").val('change_author');
+    //     $("#form_log").submit();
+    // }
+
+    function changeTop(obj) {
+        if (getChecked('ids') == false) {
+            alert('请选择要操作的产品');
+            return;}
+        if($('#top').val() == '')return;
+        $("#operate").val(obj.value);
+        $("#form_log").submit();
+    }
+
+    // function selectSort(obj) {
+    //     window.open("./admin_log.php?sid=" + obj.value + "<?php echo $isdraft?>", "_self");
+    // }
+
+    // function selectUser(obj) {
+    //     window.open("./admin_log.php?uid=" + obj.value + "<?php echo $isdraft?>", "_self");
+    // }
+
+    $("#menu_order_log").addClass('active');
 </script>

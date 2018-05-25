@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="form-group form-inline">
-            <label>每页显示 </label><input style="width:50px;" class="form-control" value="<?php echo $index_lognum; ?>" name="index_lognum" />篇文章
+            <label>每页显示 </label><input style="width:50px;" class="form-control" value="<?php echo $index_lognum; ?>" name="index_lognum" />篇产品
         </div>
         <div class="form-group form-inline">
             <label>你所在时区：</label>
@@ -46,11 +46,11 @@
             </div>
             <div class="checkbox form-inline">
                 <label><input type="checkbox" value="y" name="isexcerpt" id="isexcerpt" <?php echo $conf_isexcerpt; ?> />自动摘要</label>，
-                截取文章的前<input type="text" name="excerpt_subnum" value="<?php echo Option::get('excerpt_subnum'); ?>" class="form-control" style="width:60px;" />个字作为摘要
+                截取产品的前<input type="text" name="excerpt_subnum" value="<?php echo Option::get('excerpt_subnum'); ?>" class="form-control" style="width:60px;" />个字作为摘要
             </div>          
         </div>
         <div class="form-group form-inline">
-            RSS输出 <input maxlength="5" style="width:50px;" value="<?php echo $rss_output_num; ?>" class="form-control" name="rss_output_num" /> 篇文章（0为关闭），且输出
+            RSS输出 <input maxlength="5" style="width:50px;" value="<?php echo $rss_output_num; ?>" class="form-control" name="rss_output_num" /> 篇产品（0为关闭），且输出
             <select name="rss_output_fulltext" class="form-control">
                 <option value="y" <?php echo $ex1; ?>>全文</option>
                 <option value="n" <?php echo $ex2; ?>>摘要</option>

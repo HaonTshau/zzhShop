@@ -50,8 +50,8 @@
                                     </a>
                                 </div>
                             </li>
-                            <li><a href="write_log.php" id="menu_wt"><i class="fa fa-edit fa-fw"></i> 写文章</a></li>
-                            <li><a href="admin_log.php" id="menu_log"><i class="fa fa-list-alt fa-fw"></i> 文章</a></li>
+                            <li><a href="write_log.php" id="menu_wt"><i class="fa fa-edit fa-fw"></i> 创建产品</a></li>
+                            <li><a href="admin_log.php" id="menu_log"><i class="fa fa-list-alt fa-fw"></i> 产品管理</a></li>
                             <li><a href="order_log.php" id="menu_order_log"><i class="fa fa-list-alt fa-fw"></i> 订单管理</a></li>
                             <?php if (ROLE == ROLE_ADMIN):?>
                             <li><a href="tag.php" id="menu_tag"><i class="fa fa-tags fa-fw"></i> 标签</a></li>

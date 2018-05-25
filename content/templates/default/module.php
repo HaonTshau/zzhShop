@@ -70,7 +70,7 @@ function widget_tag($title){
     <ul class="list-unstyled">
         <?php foreach($tag_cache as $value): ?>
             <span style="font-size:<?php echo $value['fontsize']; ?>pt; line-height:30px;">
-            <a href="<?php echo Url::tag($value['tagurl']); ?>" title="<?php echo $value['usenum']; ?> 篇文章"><?php echo $value['tagname']; ?></a></span>
+            <a href="<?php echo Url::tag($value['tagurl']); ?>" title="<?php echo $value['usenum']; ?> 篇产品"><?php echo $value['tagname']; ?></a></span>
         <?php endforeach; ?>
     </ul>
 <?php }?>
@@ -122,7 +122,7 @@ function widget_newcomm($title){
     </ul>
 <?php }?>
 <?php
-//widget：最新文章
+//widget：最新产品
 function widget_newlog($title){
     global $CACHE; 
     $newLogs_cache = $CACHE->readCache('newlog');
@@ -135,7 +135,7 @@ function widget_newlog($title){
     </ul>
 <?php }?>
 <?php
-//widget：热门文章
+//widget：热门产品
 function widget_hotlog($title){
     $index_hotlognum = Option::get('index_hotlognum');
     $Log_Model = new Log_Model();
@@ -260,9 +260,9 @@ function blog_navi(){
 //blog：置顶
 function topflg($top, $sortop='n', $sortid=null){
     if(blog_tool_ishome()) {
-       echo $top == 'y' ? "<img src=\"".TEMPLATE_URL."/images/top.png\" title=\"首页置顶文章\" /> " : '';
+       echo $top == 'y' ? "<img src=\"".TEMPLATE_URL."/images/top.png\" title=\"首页置顶产品\" /> " : '';
     } elseif($sortid){
-       echo $sortop == 'y' ? "<img src=\"".TEMPLATE_URL."/images/sortop.png\" title=\"分类置顶文章\" /> " : '';
+       echo $sortop == 'y' ? "<img src=\"".TEMPLATE_URL."/images/sortop.png\" title=\"分类置顶产品\" /> " : '';
     }
 }
 ?>
@@ -285,7 +285,7 @@ function blog_sort($blogid){
     <?php endif;?>
 <?php }?>
 <?php
-//blog：文章标签
+//blog：产品标签
 function blog_tag($blogid){
     global $CACHE;
     $tag_model = new Tag_Model();
@@ -318,7 +318,7 @@ function blog_tag($blogid){
 }
 ?>
 <?php
-//blog：文章作者
+//blog：产品作者
 function blog_author($uid){
     global $CACHE;
     $user_cache = $CACHE->readCache('user');
@@ -330,7 +330,7 @@ function blog_author($uid){
 }
 ?>
 <?php
-//blog：相邻文章
+//blog：相邻产品
 function neighbor_log($neighborLog){
     extract($neighborLog);?>
     <?php if($prevLog):?>

@@ -34,7 +34,7 @@ if ($hidecmnum > 0) echo '('.$hidecmnum.')';
       <tr>
         <th width="369" colspan="2"><b>内容</b></th>
         <th width="300"><b>评论者</b></th>
-        <th width="250"><b>所属文章</b></th>
+        <th width="250"><b>所属产品</b></th>
       </tr>
     </thead>
     <tbody>
@@ -67,7 +67,7 @@ if ($hidecmnum > 0) echo '('.$hidecmnum.')';
         </td>
         <td><?php echo $poster;?> <?php echo $mail;?> <?php echo $ip;?> 
             <?php if (ROLE == ROLE_ADMIN): ?><a href="javascript: em_confirm('<?php echo $value['ip']; ?>', 'commentbyip', '<?php echo LoginAuth::genToken(); ?>');" title="删除来自该IP的所有评论" class="care">(X)</a><?php endif;?></td>
-        <td><a href="<?php echo Url::log($value['gid']); ?>" target="_blank" title="查看该文章"><?php echo $value['title']; ?></a></td>
+        <td><a href="<?php echo Url::log($value['gid']); ?>" target="_blank" title="查看该产品"><?php echo $value['title']; ?></a></td>
      </tr>
     <?php endforeach;else:?>
       <tr><td class="tdcenter" colspan="4">还没有收到评论</td></tr>

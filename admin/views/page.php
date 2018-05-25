@@ -2,7 +2,7 @@
 <script charset="utf-8" src="./editor/kindeditor.js?v=<?php echo Option::EMLOG_VERSION; ?>"></script>
 <script charset="utf-8" src="./editor/lang/zh_CN.js?v=<?php echo Option::EMLOG_VERSION; ?>"></script>
 <form action="page.php?action=save" method="post" enctype="multipart/form-data" id="addlog" name="addlog">
-<!--文章内容-->
+<!--产品内容-->
 <div class="col-lg-8">
     <div class="containertitle">
         <b><?php echo $containertitle; ?></b><span id="msg_2"></span>
@@ -30,7 +30,7 @@
     <div class=line></div>
 </div>
 
-<!--文章侧边栏-->
+<!--产品侧边栏-->
 <div class="col-lg-4 container-side">
     <div class="panel panel-default">
         <div class="panel-heading">设置项</div>

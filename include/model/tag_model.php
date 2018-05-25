@@ -90,13 +90,13 @@ class Tag_Model {
                 $tagId = $this->createTag($tagName);
             }
 
-            // 将当前文章Id插入到标签里
+            // 将当前产品Id插入到标签里
             $this->addBlogIntoTag($tagId, $blogId);
 
             $tags[] = $tagId;
         }
 
-        // 保存当前文章关联的标签Id列表
+        // 保存当前产品关联的标签Id列表
         $tag_string = implode(',', $tags);
         $sql = "UPDATE `" . DB_PREFIX . "blog` SET `tags` = '" . $this->db->escape_string($tag_string) . "' WHERE `gid` = " . $blogId;
         $this->db->query($sql);
@@ -164,7 +164,7 @@ class Tag_Model {
             }
         }
 
-        // 更新文章Tag映射
+        // 更新产品Tag映射
         $new_tag_string = implode(',', $new_tags);
         $sql = "UPDATE `" . DB_PREFIX . "blog` SET `tags` = '" . $this->db->escape_string($new_tag_string) . "' WHERE `gid` = " . $blogId;
         $this->db->query($sql);
@@ -176,7 +176,7 @@ class Tag_Model {
     }
 
     function deleteTag($tagId) {
-        // 要删除一个标签，需要先检查哪些文章有引用这个标签，并把这个标签从那些引用中删除
+        // 要删除一个标签，需要先检查哪些产品有引用这个标签，并把这个标签从那些引用中删除
         $linked_blogs = $this->getBlogIdsFromTagId($tagId);
 
         foreach ($linked_blogs as $blogId)
@@ -303,8 +303,8 @@ class Tag_Model {
     }
 
     /**
-     * 从BlogId获取到TagId列表 (获取到文章所使用的Tag列表)
-     * @param int $blogId 文章ID
+     * 从BlogId获取到TagId列表 (获取到产品所使用的Tag列表)
+     * @param int $blogId 产品ID
      * @return array 标签ID列表
      */
     function getTagIdsFromBlogId($blogId = NULL)
@@ -353,9 +353,9 @@ class Tag_Model {
 
 
     /**
-     * 从TagId获取到BlogId列表 (获取到一个Tag下所有的文章)
+     * 从TagId获取到BlogId列表 (获取到一个Tag下所有的产品)
      * @param int $tagId 标签ID
-     * @return array 文章ID列表
+     * @return array 产品ID列表
      */
     function getBlogIdsFromTagId($tagId)
     {
@@ -378,7 +378,7 @@ class Tag_Model {
     }
 
     /**
-     * 从Tag表的Tag删除掉一篇文章引用
+     * 从Tag表的Tag删除掉一篇产品引用
      * @param int $tagId 
      * @param int $blogId 
      */
@@ -446,7 +446,7 @@ class Tag_Model {
     /**
      * 将BlogId插入到Tag表里
      * @param int $tagId 标签ID
-     * @param int $blogId 文章ID
+     * @param int $blogId 产品ID
      */
     function addBlogIntoTag($tagId, $blogId)
     {

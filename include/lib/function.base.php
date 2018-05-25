@@ -322,10 +322,10 @@ function doAction($hook) {
 }
 
 /**
- * 文章分割
+ * 产品分割
  *
- * @param string $content 文章内容
- * @param int $lid 文章id
+ * @param string $content 产品内容
+ * @param int $lid 产品id
  */
 function breakLog($content, $lid) {
     $ret = explode('[break]', $content, 2);
@@ -342,7 +342,7 @@ function breakLog($content, $lid) {
 /**
  * 删除[break]标签
  *
- * @param string $content 文章内容
+ * @param string $content 产品内容
  */
 function rmBreak($content) {
     $content = str_replace('[break]', '', $content);

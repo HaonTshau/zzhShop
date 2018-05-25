@@ -1,6 +1,6 @@
 <?php
 /**
- * 查看标签文章
+ * 查看标签产品
  *
  * @copyright (c) Emlog All Rights Reserved
  */

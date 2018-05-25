@@ -1,6 +1,6 @@
 <?php 
 /**
- * 阅读文章页面
+ * 阅读产品页面
  */
 if(!defined('EMLOG_ROOT')) {exit('error!');} 
 ?>

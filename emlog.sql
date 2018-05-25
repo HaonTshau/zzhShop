@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `emlog_blog` (
 --
 
 INSERT INTO `emlog_blog` (`gid`, `title`, `date`, `content`, `excerpt`, `alias`, `author`, `sortid`, `type`, `views`, `comnum`, `attnum`, `top`, `sortop`, `hide`, `checked`, `allow_remark`, `password`, `template`, `tags`, `color`, `count`, `size`) VALUES
-(1, '欢迎使用emlog', 1520421902, '恭喜您成功安装了emlog，这是系统自动生成的演示文章。编辑或者删除它，然后开始您的创作吧！', '', '', 1, -1, 'blog', 76, 0, 0, 'n', 'n', 'n', 'y', 'y', '', '', NULL, 'red|yellow|black', 5, '42|43'),
+(1, '欢迎使用emlog', 1520421902, '恭喜您成功安装了emlog，这是系统自动生成的演示产品。编辑或者删除它，然后开始您的创作吧！', '', '', 1, -1, 'blog', 76, 0, 0, 'n', 'n', 'n', 'y', 'y', '', '', NULL, 'red|yellow|black', 5, '42|43'),
 (2, '方超', 1520423682, '这是一个测试谁的<br />\r\n<a target="_blank" href="http://10.0.0.221/emlog_3/content/uploadfile/201803/44f01520423854.jpg" id="ematt:1"><img src="http://10.0.0.221/emlog_3/content/uploadfile/201803/44f01520423854.jpg" title="点击查看原图" alt="1875205232.jpg" border="0" width="800" height="157" /></a><br />', '', '', 1, 1, 'blog', 147, 1, 1, 'n', 'n', 'n', 'y', 'y', '', '', NULL, 'blue', 88, '175cm');
 
 -- --------------------------------------------------------
@@ -245,7 +245,7 @@ INSERT INTO `emlog_options` (`option_id`, `option_name`, `option_value`) VALUES
 (46, 'istreply', 'n'),
 (47, 'timezone', 'Asia/Shanghai'),
 (48, 'active_plugins', ''),
-(49, 'widget_title', 'a:11:{s:7:"blogger";s:12:"个人资料";s:8:"calendar";s:6:"日历";s:3:"tag";s:6:"标签";s:4:"sort";s:6:"分类";s:7:"archive";s:6:"存档";s:7:"newcomm";s:12:"最新评论";s:6:"newlog";s:12:"最新文章";s:6:"hotlog";s:12:"热门文章";s:4:"link";s:6:"链接";s:6:"search";s:6:"搜索";s:11:"custom_text";s:15:"自定义组件";}'),
+(49, 'widget_title', 'a:11:{s:7:"blogger";s:12:"个人资料";s:8:"calendar";s:6:"日历";s:3:"tag";s:6:"标签";s:4:"sort";s:6:"分类";s:7:"archive";s:6:"存档";s:7:"newcomm";s:12:"最新评论";s:6:"newlog";s:12:"最新产品";s:6:"hotlog";s:12:"热门产品";s:4:"link";s:6:"链接";s:6:"search";s:6:"搜索";s:11:"custom_text";s:15:"自定义组件";}'),
 (50, 'custom_widget', 'a:0:{}'),
 (51, 'widgets1', 'a:3:{i:0;s:7:"archive";i:1;s:4:"link";i:2;s:6:"search";}'),
 (52, 'widgets2', ''),

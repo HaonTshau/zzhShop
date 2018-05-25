@@ -11,10 +11,10 @@
 </div>
 <div class="panel-body" style="margin-left:30px;">
 <form action="seo.php?action=update" method="post">
-<h4>文章链接设置</h4>
+<h4>产品链接设置</h4>
 <div class="alert alert-info" style="width: 100%">
-    你可以在这里修改文章链接的形式，如果修改后文章无法访问，那可能是你的服务器空间不支持URL重写，请修改回默认形式、关闭文章连接别名。
-    <br />启用链接别名后可以自定义文章和页面的链接地址。
+    你可以在这里修改产品链接的形式，如果修改后产品无法访问，那可能是你的服务器空间不支持URL重写，请修改回默认形式、关闭产品连接别名。
+    <br />启用链接别名后可以自定义产品和页面的链接地址。
 </div>
 <div class="form-group">
             <div class="radio">
@@ -41,12 +41,12 @@
 <div class="form-group">
                 <div class="checkbox">
                 <label>
-                    <input type="checkbox" style="vertical-align:middle;" value="y" name="isalias" id="isalias" <?php echo $isalias; ?> />启用文章链接别名
+                    <input type="checkbox" style="vertical-align:middle;" value="y" name="isalias" id="isalias" <?php echo $isalias; ?> />启用产品链接别名
                 </label>
             </div>
                 <div class="checkbox">
                 <label>
-                    <input type="checkbox" style="vertical-align:middle;" value="y" name="isalias_html" id="isalias_html" <?php echo $isalias_html; ?> />启用文章链接别名html后缀
+                    <input type="checkbox" style="vertical-align:middle;" value="y" name="isalias_html" id="isalias_html" <?php echo $isalias_html; ?> />启用产品链接别名html后缀
                 </label>
             </div>
 </div>
@@ -66,11 +66,11 @@
         <textarea name="site_description" class="form-control" cols="" rows="4" style="width:300px;"><?php echo $site_description; ?></textarea>
     </li>
     <li>
-        <label>文章浏览器标题方案：</label>
+        <label>产品浏览器标题方案：</label>
         <select name="log_title_style" class="form-control" style="width: 120px;">
-        <option value="0" <?php echo $opt0; ?>>文章标题</option>
-        <option value="1" <?php echo $opt1; ?>>文章标题 - 站点标题</option>
-        <option value="2" <?php echo $opt2; ?>>文章标题 - 站点浏览器标题</option>
+        <option value="0" <?php echo $opt0; ?>>产品标题</option>
+        <option value="1" <?php echo $opt1; ?>>产品标题 - 站点标题</option>
+        <option value="2" <?php echo $opt2; ?>>产品标题 - 站点浏览器标题</option>
         </select>
     </li>
     <li style="margin-top:10px;">

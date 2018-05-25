@@ -1,12 +1,12 @@
 <?php
 /**
- * 显示撰写、编辑文章界面
+ * 显示撰写、编辑产品界面
  * @copyright (c) Emlog All Rights Reserved
  */
 
 require_once 'globals.php';
 
-//显示撰写文章页面
+//显示撰写产品页面
 if ($action == '') {
 	$Tag_Model = new Tag_Model();
 	$Sort_Model = new Sort_Model();
@@ -27,7 +27,7 @@ if ($action == '') {
     extract($blogData);
 
     $isdraft = false;
-    $containertitle = '写文章';
+    $containertitle = '写产品';
     $orig_date = '';
 	$sorts = $CACHE->readCache('sort');
 	$tagStr = '';
@@ -44,7 +44,7 @@ if ($action == '') {
 	View::output();
 }
 
-//显示编辑文章页面
+//显示编辑产品页面
 if ($action == 'edit') {
 	$Log_Model = new Log_Model();
 	$Tag_Model = new Tag_Model();
@@ -55,7 +55,7 @@ if ($action == 'edit') {
 	extract($blogData);
 
     $isdraft = $hide == 'y' ? true : false;
-    $containertitle = $isdraft ? '编辑草稿' : '编辑文章';
+    $containertitle = $isdraft ? '编辑草稿' : '编辑产品';
     $postDate = date('Y-m-d H:i:s', $date);
 	$sorts = $CACHE->readCache('sort');
 	//log tag

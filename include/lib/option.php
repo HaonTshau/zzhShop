@@ -167,8 +167,8 @@ class Option {
             'sort' => '分类',
             'archive' => '存档',
             'newcomm' => '最新评论',
-            'newlog' => '最新文章',
-            'hotlog' => '热门文章',
+            'newlog' => '最新产品',
+            'hotlog' => '热门产品',
             'link' => '链接',
             'search' => '搜索',
             'custom_text' => '自定义组件'

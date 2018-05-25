@@ -22,7 +22,7 @@
                 <th width="130"><b>别名</b></th>
                 <th width="100"><b>模板</b></th>
                 <th width="40" class="tdcenter"><b>查看</b></th>
-                <th width="40" class="tdcenter"><b>文章</b></th>
+                <th width="40" class="tdcenter"><b>产品</b></th>
                 <th width="60"></th>
             </tr>
         </thead>

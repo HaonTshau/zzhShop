@@ -49,7 +49,7 @@ echo <<< END
 END;
 
 /**
- * 获取文章信息
+ * 获取产品信息
  *
  * @return array
  */
@@ -82,7 +82,7 @@ function getBlog($sortid = null) {
         $re['content']	= $re['content'];
         if(!empty($re['password']))
         {
-            $re['content'] = '<p>[该文章已设置加密]</p>';
+            $re['content'] = '<p>[该产品已设置加密]</p>';
         }
         elseif(Option::get('rss_output_fulltext') == 'n')
         {

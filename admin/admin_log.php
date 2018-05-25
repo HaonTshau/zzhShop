@@ -1,6 +1,6 @@
 <?php
 /**
- * 管理文章
+ * 管理产品
  * @copyright (c) Emlog All Rights Reserved
  */
 
@@ -8,7 +8,7 @@ require_once 'globals.php';
 
 $Log_Model = new Log_Model();
 
-//显示文章(草稿)管理页面
+//显示产品(草稿)管理页面
 if ($action == '') {
     $Tag_Model = new Tag_Model();
     $User_Model = new User_Model();
@@ -75,7 +75,7 @@ if ($action == '') {
     include View::getView('footer');View::output();
 }
 
-//操作文章
+//操作产品
 if ($action == 'operate_log') {
     $operate = isset($_REQUEST['operate']) ? $_REQUEST['operate'] : '';
     $pid = isset($_POST['pid']) ? $_POST['pid'] : '';
