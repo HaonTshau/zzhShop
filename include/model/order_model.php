@@ -32,6 +32,26 @@ class Order_Model {
 		}
 		
     }
+
+    function getOrdersNum($orderId = null, $hide = null) {
+        $comNum = '';
+        $andQuery = '1=1';
+        $andQuery .= $orderId ? " and a.id=$orderId" : '';
+        $andQuery .= $hide ? " and a.hide='$hide'" : '';
+        if (ROLE == ROLE_ADMIN) {
+            $sql = "SELECT count(*) FROM ".DB_PREFIX."order as a where $andQuery";
+        }else {
+            $sql = "SELECT count(*) FROM ".DB_PREFIX."comment as a, ".DB_PREFIX."blog as b where $andQuery and a.gid=b.gid and b.author=".UID;
+        }
+        $res = $this->db->once_fetch_array($sql);
+        $comNum = $res['count(*)'];
+        return $comNum;
+    }
+
+    function getOrders()
+    {
+
+    }
 /*
     function getComments($spot = 0, $blogId = null, $hide = null, $page = null) {
         $andQuery = '1=1';
