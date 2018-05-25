@@ -48,9 +48,27 @@ class Order_Model {
         return $comNum;
     }
 
-    function getOrders()
+    function getOrders($page = null)
     {
+        $sql = "SELECT * FROM ".DB_PREFIX."order LIMIT 0, 10";
+        $ret = $this->db->query($sql);
+        $orders = array();
+        while ($row = $this->db->fetch_array($ret)){
+            $row['id'] = htmlspecialchars($row['id']);
+            $row['logid'] = htmlspecialchars($row['logid']);
+            $row['time'] = htmlspecialchars($row['time']);
+            $row['name'] = htmlspecialchars($row['name']);
+            $row['phone'] = htmlspecialchars($row['phone']);
+            $row['count'] = htmlspecialchars($row['count']);
+            $row['color'] = htmlspecialchars($row['color']);
+            $row['size'] = htmlspecialchars($row['size']);
+            $row['address'] = htmlspecialchars($row['address']);
+            $row['remark'] = htmlspecialchars($row['remark']);
+            $row['flag'] = htmlspecialchars($row['flag']);
 
+            array_push($orders, $row);
+        }
+        return $orders;
     }
 /*
     function getComments($spot = 0, $blogId = null, $hide = null, $page = null) {

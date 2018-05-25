@@ -106,7 +106,18 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
   <table class="table table-striped table-bordered table-hover dataTable no-footer">
   <thead>
       <tr>
-        <th width="511" colspan="2"><b>标题</b></th>
+        <th width="130"><b>订单 ID</b></th>
+        <th width="130"><b><a href="#">商品</a></b></th>
+        <th width="130"><b><a href="#">数量</a></b></th>
+        <th width="130"><b><a href="#">颜色</a></b></th>
+        <th width="130"><b><a href="#">尺寸</a></b></th>
+        <th width="130"><b><a href="#">地址</a></b></th>
+        <th width="130"><b><a href="#">姓名</a></b></th>
+        <th width="130"><b><a href="#">联系方式</a></b></th>
+        <th width="130"><b><a href="#">时间</a></b></th>
+        <th width="130"><b><a href="#">备注</a></b></th>
+        <th width="100"><b><a href="#">是否处理</a></b></th>
+        <!--         
         <?php if ($pid != 'draft'): ?>
         <th width="50" class="tdcenter"><b>查看</b></th>
         <?php endif; ?>
@@ -115,17 +126,19 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
         <th width="130"><b><a href="./admin_log.php?sortDate=<?php echo $sortDate.$sorturl; ?>">时间</a></b></th>
         <th width="49" class="tdcenter"><b><a href="./admin_log.php?sortComm=<?php echo $sortComm.$sorturl; ?>">评论</a></b></th>
         <th width="59" class="tdcenter"><b><a href="./admin_log.php?sortView=<?php echo $sortView.$sorturl; ?>">阅读</a></b></th>
+         -->
       </tr>
     </thead>
     <tbody>
     <?php
-    if($logs):
-    foreach($logs as $key=>$value):
-    $sortName = $value['sortid'] == -1 && !array_key_exists($value['sortid'], $sorts) ? '未分类' : $sorts[$value['sortid']]['sortname'];
-    $author = $user_cache[$value['author']]['name'];
-    $author_role = $user_cache[$value['author']]['role'];
+    if($orders):
+    foreach($orders as $key=>$value):
+    // $sortName = $value['sortid'] == -1 && !array_key_exists($value['sortid'], $sorts) ? '未分类' : $sorts[$value['sortid']]['sortname'];
+    // $author = $user_cache[$value['author']]['name'];
+    // $author_role = $user_cache[$value['author']]['role'];
     ?>
       <tr>
+<!--       
       <td width="21"><input type="checkbox" name="blog[]" value="<?php echo $value['gid']; ?>" class="ids" /></td>
       <td width="490"><a href="write_log.php?action=edit&gid=<?php echo $value['gid']; ?>"><?php echo $value['title']; ?></a>
       <?php if($value['top'] == 'y'): ?><img src="./views/images/top.png" align="top" title="首页置顶" /><?php endif; ?>
@@ -151,9 +164,21 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
       <td class="small"><?php echo $value['date']; ?></td>
       <td class="tdcenter"><a href="comment.php?gid=<?php echo $value['gid']; ?>"><?php echo $value['comnum']; ?></a></td>
       <td class="tdcenter"><?php echo $value['views']; ?></a></td>
+-->
+        <td class="tdcenter"><?php echo $value['id']?></td>
+        <td class="tdcenter"><?php echo $value['logid']?></td>
+        <td class="tdcenter"><?php echo $value['count']?></td>
+        <td class="tdcenter"><?php echo $value['color']?></td>
+        <td class="tdcenter"><?php echo $value['size']?></td>
+        <td class="tdcenter"><?php echo $value['address']?></td>
+        <td class="tdcenter"><?php echo $value['name']?></td>
+        <td class="tdcenter"><?php echo $value['phone']?></td>
+        <td class="tdcenter"><?php echo $value['time']?></td>        
+        <td class="tdcenter"><?php echo $value['remark']?></td>
+        <td class="tdcenter"><?php echo $value['flag']?></td>
       </tr>
     <?php endforeach;else:?>
-      <tr><td class="tdcenter" colspan="8">还没有文章</td></tr>
+      <tr><td class="tdcenter" colspan="12">还没有订单</td></tr>
     <?php endif;?>
     </tbody>
     </table>
