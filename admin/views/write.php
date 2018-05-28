@@ -21,7 +21,7 @@
                 <input type="text" name="title" id="title" value="<?php echo $title; ?>" class="form-control" placeholder="标题" />
             </div>
             <div id="post_bar">
-<!--                 <div class="show_advset">
+                <div class="show_advset">
                     <span onclick="displayToggle('FrameUpload', 0);autosave(1);">上传插入<i class="fa fa-caret-right fa-fw"></i></span>
                     <?php doAction('adm_writelog_head'); ?>
                     <span id="asmsg"></span>
@@ -29,7 +29,7 @@
                 </div>
                 <div id="FrameUpload" style="display: none;">
                     <iframe width="100%" height="330" frameborder="0" src="<?php echo $att_frame_url;?>"></iframe>
-                </div> -->
+                </div>
             </div>
             <p>
                 <label>选择颜色：</label>
@@ -59,11 +59,12 @@
             <div>
                 <textarea id="content" name="content" style="width:100%; height:460px;"><?php echo $content; ?></textarea>
             </div>
-<!--             <div class="show_advset" onclick="displayToggle('advset', 1);">高级选项<i class="fa fa-caret-right fa-fw"></i></div>
+            <div class="show_advset" onclick="displayToggle('advset', 1);">高级选项<i class="fa fa-caret-right fa-fw"></i>
+            </div>
             <div id="advset">
                 <div>产品摘要：</div>
                 <div><textarea id="excerpt" name="excerpt" style="width:100%; height:260px;"><?php echo $excerpt; ?></textarea></div>
-            </div> -->
+            </div>
         </div>
     <div class=line></div>
 </div>
